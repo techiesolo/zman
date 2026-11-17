@@ -33,8 +33,11 @@ jobs:
       # The core crate has no GUI dependencies, so it needs no WebKitGTK here.
       - run: cargo test --manifest-path src-tauri/Cargo.toml -p zman-core
 
+  # Installers are built only for version tags; pushes to main and pull
+  # requests stop after the tests.
   bundle:
     needs: test
+    if: startsWith(github.ref, 'refs/tags/')
     strategy:
       fail-fast: false
       matrix:

@@ -39,7 +39,9 @@ Runs on Linux (built for Ubuntu) and macOS. Built with Tauri 2 (Rust) and React.
 
 ## Install
 
-The `Build` workflow in GitHub Actions produces the installers as artifacts of each run:
+The `Build` workflow in GitHub Actions builds the installers when a version tag is pushed
+(`git tag v0.1.0 && git push origin v0.1.0`) and attaches them to that run as artifacts. Pushes
+to `main` and pull requests only run the tests.
 
 - **Ubuntu**: `sudo apt install ./zman_0.1.0_amd64.deb`, or make the `.AppImage` executable and
   run it. The `.deb` needs Ubuntu 22.04 or newer.
