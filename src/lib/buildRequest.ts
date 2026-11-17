@@ -119,6 +119,7 @@ export function buildRequest({ request, auth, vars, settings }: BuildInput): Bui
         kind: "urlencoded",
         fields: b.urlencoded.filter((f) => f.enabled && f.key !== "").map((f) => [sub(f.key), sub(f.value)]),
       };
+      addDefault("Content-Type", "application/x-www-form-urlencoded");
       break;
     case "formdata": {
       const parts: SpecFormPart[] = [];

@@ -24,6 +24,8 @@ export function generateCurl(spec: HttpRequestSpec): string {
     const lower = name.toLowerCase();
     if (lower === "user-agent" && value === USER_AGENT) continue;
     if (lower === "accept" && value === "*/*") continue;
+    // curl sets this one itself for --data-urlencode.
+    if (lower === "content-type" && spec.body.kind === "urlencoded" && value === "application/x-www-form-urlencoded") continue;
     lines.push(`-H ${shellQuote(value === "" ? `${name};` : `${name}: ${value}`)}`);
   }
 
