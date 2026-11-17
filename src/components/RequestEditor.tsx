@@ -248,7 +248,6 @@ export function RequestEditor({ tabId }: { tabId: string }) {
                 });
               }}
               make={(id) => ({ ...kv(), id })}
-              description
             />
             {draft.pathVars.length > 0 && (
               <div>

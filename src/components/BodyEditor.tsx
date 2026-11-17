@@ -93,7 +93,6 @@ export function BodyEditor({ body, onChange }: BodyEditorProps) {
             onChange={(rows) => onChange((b) => void (b.formdata = rows))}
             make={(id) => ({ ...formPart(), id })}
             fileParts
-            description
           />
         </div>
       )}
@@ -105,7 +104,6 @@ export function BodyEditor({ body, onChange }: BodyEditorProps) {
             rows={body.urlencoded}
             onChange={(rows) => onChange((b) => void (b.urlencoded = rows))}
             make={(id) => ({ ...kv(), id })}
-            description
           />
         </div>
       )}

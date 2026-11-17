@@ -12,7 +12,6 @@ interface KVTableProps<T extends KV> {
   make(id: string): T;
   keyLabel?: string;
   valueLabel?: string;
-  description?: boolean;
   /** Rows are fixed (path variables): only values can be edited. */
   fixedKeys?: boolean;
   /** Rows are multipart form parts and can be switched to file uploads. */
@@ -37,7 +36,6 @@ export function KVTable<T extends KV>({
   make,
   keyLabel = "Key",
   valueLabel = "Value",
-  description = false,
   fixedKeys = false,
   fileParts = false,
   variablesInKey = true,
@@ -55,7 +53,7 @@ export function KVTable<T extends KV>({
   };
   const remove = (id: string) => onChange(rows.filter((row) => row.id !== id));
 
-  const columns = `${fixedKeys ? "" : "30px "}minmax(0,1fr) minmax(0,1.4fr)${description ? " minmax(0,1fr)" : ""}${fixedKeys ? "" : " 30px"}`;
+  const columns = `${fixedKeys ? "" : "30px "}minmax(0,1fr) minmax(0,1.4fr)${fixedKeys ? "" : " 30px"}`;
   const cell = "flex min-w-0 items-center border-l border-line";
 
   return (
@@ -68,11 +66,6 @@ export function KVTable<T extends KV>({
         <div role="columnheader" className="border-l border-line px-2 py-1.5">
           {valueLabel}
         </div>
-        {description && (
-          <div role="columnheader" className="border-l border-line px-2 py-1.5">
-            Description
-          </div>
-        )}
         {!fixedKeys && <div />}
       </div>
 
@@ -160,18 +153,6 @@ export function KVTable<T extends KV>({
                 />
               )}
             </div>
-
-            {description && (
-              <div role="cell" className={`${cell} ${dim}`}>
-                <input
-                  className="cell-input"
-                  value={row.description ?? ""}
-                  placeholder="Description"
-                  aria-label="Description"
-                  onChange={(e) => update(row.id, { description: e.target.value || undefined })}
-                />
-              </div>
-            )}
 
             {!fixedKeys && (
               <div className="flex items-center justify-center">
