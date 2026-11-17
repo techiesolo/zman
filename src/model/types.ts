@@ -160,6 +160,8 @@ export interface HistoryEntry {
   timeMs?: number;
   sizeBytes?: number;
   error?: string;
+  /** The saved request this was sent from, if it was saved at the time. */
+  source?: { collectionId: string; requestId: string };
 }
 
 export interface Settings {
