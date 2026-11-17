@@ -40,10 +40,10 @@ Runs on Linux (built for Ubuntu) and macOS. Built with Tauri 2 (Rust) and React.
 ## Install
 
 The `Build` workflow in GitHub Actions builds the installers when a version tag is pushed
-(`git tag v0.1.0 && git push origin v0.1.0`) and attaches them to that run as artifacts. Pushes
+(`git tag v1.0.0 && git push origin v1.0.0`) and attaches them to that run as artifacts. Pushes
 to `main` and pull requests only run the tests.
 
-- **Ubuntu**: `sudo apt install ./zman_0.1.0_amd64.deb`, or make the `.AppImage` executable and
+- **Ubuntu**: `sudo apt install ./zman_1.0.0_amd64.deb`, or make the `.AppImage` executable and
   run it. The `.deb` needs Ubuntu 22.04 or newer.
 - **macOS** (13.3 or newer, Intel and Apple Silicon): open the `.dmg` and drag zman to
   Applications. The build is not signed with an Apple Developer ID, so macOS blocks the first

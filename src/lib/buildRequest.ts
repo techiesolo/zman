@@ -11,7 +11,7 @@ import type {
 import { appendQueryParam, applyPathVars, normalizeUrl } from "./url";
 import { resolveVariables, type VarMap } from "./variables";
 
-export const USER_AGENT = "zman/0.1.0";
+export const USER_AGENT = "zman/1.0.0";
 
 export interface EffectiveAuth {
   auth: Auth;
