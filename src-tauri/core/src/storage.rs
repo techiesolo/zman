@@ -67,7 +67,7 @@ fn check_id(id: &str) -> Result<(), StoreError> {
     }
 }
 
-fn io_error(action: &'static str, path: &Path) -> impl FnOnce(io::Error) -> StoreError + '_ {
+fn io_error<'a>(action: &'static str, path: &'a Path) -> impl FnOnce(io::Error) -> StoreError + 'a {
     move |source| StoreError::Io {
         action,
         path: path.display().to_string(),

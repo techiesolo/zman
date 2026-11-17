@@ -5,7 +5,6 @@
 //! is what goes on the wire.
 
 use std::collections::HashMap;
-use std::error::Error as _;
 use std::path::Path;
 use std::sync::{Arc, Mutex};
 use std::time::{Duration, Instant};
