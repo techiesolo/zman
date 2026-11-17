@@ -289,7 +289,6 @@ export function RequestEditor({ tabId }: { tabId: string }) {
               onChange={(rows) => update((d) => void (d.headers = rows))}
               make={(id) => ({ ...kv(), id })}
               keyLabel="Header"
-              description
             />
             <p className="m-0 text-xs text-faint">
               <code className="font-mono">User-Agent</code>, <code className="font-mono">Accept</code>,{" "}
