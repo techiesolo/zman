@@ -1,0 +1,54 @@
+{
+	"info": {
+		"name": "Legacy v2.0",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create user",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "admin",
+						"password": "hunter2"
+					}
+				},
+				"method": "post",
+				"header": "Content-Type: application/xml\nX-Trace: 1",
+				"body": {
+					"mode": "raw",
+					"raw": "<user><name>Ann</name></user>"
+				},
+				"url": "http://localhost:8080/users?notify=true",
+				"description": {
+					"content": "Creates a user.",
+					"type": "text/plain"
+				}
+			}
+		},
+		{
+			"name": "Upload",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "file",
+					"file": {
+						"src": "/tmp/payload.bin"
+					}
+				},
+				"url": {
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["files", "1"],
+					"query": [
+						{ "key": "overwrite", "value": "true" },
+						{ "key": "dry", "value": "1", "disabled": true }
+					]
+				}
+			}
+		}
+	]
+}

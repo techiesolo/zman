@@ -1,0 +1,24 @@
+[package]
+name = "zman-core"
+description = "HTTP engine and on-disk storage for zman. Has no GUI dependencies."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+reqwest = { version = "0.13", features = ["gzip", "brotli", "deflate", "zstd", "cookies", "multipart", "socks"] }
+tokio = { version = "1", features = ["fs", "macros", "rt", "time"] }
+tokio-util = "0.7"
+serde = { version = "1", features = ["derive"] }
+base64 = "0.23"
+thiserror = "2"
+url = "2"
+mime_guess = "2"
+encoding_rs = "0.8"
+
+[dev-dependencies]
+axum = { version = "0.8", features = ["multipart"] }
+tokio = { version = "1", features = ["full"] }
+serde_json = "1"
+tempfile = "3"
+flate2 = "1"
